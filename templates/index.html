@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Profile Card Generator</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>✨ Profile Card Generator</h1>
+
+    <form method="POST">
+
+        <input type="text" name="name" placeholder="Enter Your Name" required>
+
+        <textarea name="bio" placeholder="Tell Something About Yourself" required></textarea>
+
+        <input type="text" name="image" placeholder="Paste Image URL" required>
+
+        <button type="submit">Generate Card 🚀</button>
+
+    </form>
+
+    {% if profile %}
+
+    <div class="card">
+
+        <img src="{{ profile.image }}" alt="Profile Image">
+
+        <h2>{{ profile.name }}</h2>
+
+        <p>{{ profile.bio }}</p>
+
+    </div>
+
+    {% endif %}
+
+</div>
+
+</body>
+</html>
